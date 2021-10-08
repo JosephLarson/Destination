@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using Destination.Dtos;
 using Destination.Entities;
 using Destination.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -18,15 +20,15 @@ namespace Destination.Controller
 
         // GET /destination
         [HttpGet]
-        public IEnumerable<Dest> GetDest()
+        public IEnumerable<DestDto> GetDest()
         {
-            var dests = repository.GetDests();
+            var dests = repository.GetDests().Select(dest => dest.AsDto());
             return dests;
         }
 
         // GET /destination{name}
         [HttpGet("{name}")]
-        public ActionResult<Dest> GetDest(string name)
+        public ActionResult<DestDto> GetDest(string name)
         // ActionResult, used to allow for NotFound return type
         {
             var dest = repository.GetDest(name);
@@ -34,7 +36,7 @@ namespace Destination.Controller
             {
                 return NotFound();
             }
-            return dest;
+            return dest.AsDto();
         }
     }
 }
