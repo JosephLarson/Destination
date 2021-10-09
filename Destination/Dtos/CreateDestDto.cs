@@ -9,6 +9,6 @@ namespace Destination.Dtos
         public string Name {get; init;}
 
         [Required]
-        public List<string> Path {get; init;}
+        public List<string> List {get; init;}
     }
 }

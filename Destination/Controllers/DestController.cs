@@ -44,8 +44,8 @@ namespace Destination.Controller
         public ActionResult<DestDto> CreateDest(CreateDestDto destDto)
         {
             Dest dest = new(){
-                Name = destDto.Name,
-                Path = destDto.Path
+                Destination = destDto.Name,
+                List = destDto.List
             };
             repository.CreateDest(dest);
 

@@ -4,8 +4,8 @@ namespace Destination.Entities
 {
     public record Dest
     {
-        public string Name {get; init;}
+        public string Destination {get; init;}
 
-        public List<string> Path {get; init;}
+        public List<string> List {get; init;}
     }
 }

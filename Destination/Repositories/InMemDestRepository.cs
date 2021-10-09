@@ -8,16 +8,16 @@ namespace Destination.Repositories
     {
         private readonly List<Dest> dest = new()
         {
-            new Dest { Name = "CAN", Path = new List<string> {"USA", "CAN"}},
-            new Dest { Name = "USA", Path = new List<string> {"USA"}},
-            new Dest { Name = "MEX", Path = new List<string> {"USA", "MEX"}},
-            new Dest { Name = "BLZ", Path = new List<string> {"USA", "MEX", "BLZ"}},
-            new Dest { Name = "GTM", Path = new List<string> {"USA", "MEX", "GTM"}},
-            new Dest { Name = "SLV", Path = new List<string> {"USA", "MEX", "GTM", "SLV"}},
-            new Dest { Name = "HND", Path = new List<string> {"USA", "MEX", "GTM", "HND"}},
-            new Dest { Name = "NIC", Path = new List<string> {"USA", "MEX", "GTM", "HND", "NIC"}},
-            new Dest { Name = "CRI", Path = new List<string> {"USA", "MEX", "GTM", "HND", "NIC", "CRI"}},
-            new Dest { Name = "PAN", Path = new List<string> {"USA", "MEX", "GTM", "HND", "NIC", "CRI", "PAN"}},
+            new Dest { Destination = "CAN", List = new List<string> {"USA", "CAN"}},
+            new Dest { Destination = "USA", List = new List<string> {"USA"}},
+            new Dest { Destination = "MEX", List = new List<string> {"USA", "MEX"}},
+            new Dest { Destination = "BLZ", List = new List<string> {"USA", "MEX", "BLZ"}},
+            new Dest { Destination = "GTM", List = new List<string> {"USA", "MEX", "GTM"}},
+            new Dest { Destination = "SLV", List = new List<string> {"USA", "MEX", "GTM", "SLV"}},
+            new Dest { Destination = "HND", List = new List<string> {"USA", "MEX", "GTM", "HND"}},
+            new Dest { Destination = "NIC", List = new List<string> {"USA", "MEX", "GTM", "HND", "NIC"}},
+            new Dest { Destination = "CRI", List = new List<string> {"USA", "MEX", "GTM", "HND", "NIC", "CRI"}},
+            new Dest { Destination = "PAN", List = new List<string> {"USA", "MEX", "GTM", "HND", "NIC", "CRI", "PAN"}},
         };
 
         public IEnumerable<Dest> GetDests()
@@ -27,7 +27,7 @@ namespace Destination.Repositories
 
         public Dest GetDest(string name)
         {
-            return dest.Where(dest => dest.Name == name).SingleOrDefault();
+            return dest.Where(dest => dest.Destination == name).SingleOrDefault();
         }
 
         public void CreateDest(Dest destination)
@@ -45,7 +45,7 @@ namespace Destination.Repositories
 
         public void DeleteDest(string name)
         {
-            var index = dest.FindIndex(existingDest => existingDest.Name == name);
+            var index = dest.FindIndex(existingDest => existingDest.Destination == name);
             dest.RemoveAt(index);
         }
     }

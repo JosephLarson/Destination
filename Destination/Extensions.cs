@@ -10,8 +10,8 @@ namespace Destination
         {
             return new DestDto
             {
-                Name = dest.Name,
-                Path = dest.Path
+                Destination = dest.Destination,
+                List = dest.List
             };
         }
     }
