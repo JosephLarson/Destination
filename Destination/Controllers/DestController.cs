@@ -20,10 +20,15 @@ namespace Destination.Controller
 
         // GET /destination
         [HttpGet]
-        public IEnumerable<DestDto> GetDest()
+        public ActionResult<IEnumerable<DestDto>> GetDests()
         {
             var dests = repository.GetDests().Select(dest => dest.AsDto());
-            return dests;
+
+            if (dests is null || !dests.Any())
+            {
+                return NoContent();
+            }
+            return Ok(dests);
         }
 
         // GET /destination{name}

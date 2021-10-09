@@ -19,6 +19,7 @@ namespace Destination.Repositories
             new Dest { Destination = "CRI", List = new List<string> {"USA", "MEX", "GTM", "HND", "NIC", "CRI"}},
             new Dest { Destination = "PAN", List = new List<string> {"USA", "MEX", "GTM", "HND", "NIC", "CRI", "PAN"}},
         };
+        
 
         public IEnumerable<Dest> GetDests()
         {
