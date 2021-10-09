@@ -29,24 +29,5 @@ namespace Destination.Repositories
         {
             return dest.Where(dest => dest.Destination == name).SingleOrDefault();
         }
-
-        public void CreateDest(Dest destination)
-        {
-            dest.Add(destination);
-        }
-
-        /*
-        public void UpdateDest(Dest destination)
-        {
-            var index = dest.FindIndex(existingDest => existingDest.Name == destination.Name);
-            dest[index] = destination;
-        }
-        */
-
-        public void DeleteDest(string name)
-        {
-            var index = dest.FindIndex(existingDest => existingDest.Destination == name);
-            dest.RemoveAt(index);
-        }
     }
 }

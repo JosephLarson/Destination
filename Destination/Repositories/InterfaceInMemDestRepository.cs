@@ -13,12 +13,5 @@ namespace Destination.Repositories
         Dest GetDest(string name);
 
         IEnumerable<Dest> GetDests();
-
-        void CreateDest(Dest destination);
-        /*
-        void UpdateDest(Dest destination);
-        */
-        void DeleteDest(string name);
-
     }
 }

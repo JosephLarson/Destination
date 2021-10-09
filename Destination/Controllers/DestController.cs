@@ -38,57 +38,5 @@ namespace Destination.Controller
             }
             return dest.AsDto();
         }
-
-        // POST /destination
-        [HttpPost]
-        public ActionResult<DestDto> CreateDest(CreateDestDto destDto)
-        {
-            Dest dest = new(){
-                Destination = destDto.Name,
-                List = destDto.List
-            };
-            repository.CreateDest(dest);
-
-            return CreatedAtAction(nameof(GetDest), dest.AsDto());
-        }
-        /*
-        // PUT /destination/{name}
-        [HttpPut("{name}")]
-        public ActionResult UpdateDest(string name, UpdateDestDto destDto)
-        {
-            // Find existing destination
-            var existingDest = repository.GetDest(name);
-            if(existingDest is null)
-            {
-                return NotFound();
-            }
-
-            // Adjust existing destination with passed in updated destination
-            // Making a copy of it, why we can modify
-            Dest updatedDest = existingDest with {
-                Name = destDto.Name,
-                Path = destDto.Path
-            };
-            
-            // Update the repository
-            repository.UpdateDest(updatedDest);
-            return NoContent();
-        }
-        */
-
-        // Delete /destination/{name}
-        [HttpDelete]
-        public ActionResult DeleteDest(string name)
-        {
-            // Find existing destination
-            var existingDest = repository.GetDest(name);
-            if(existingDest is null)
-            {
-                return NotFound();
-            }
-
-            repository.DeleteDest(name);
-            return NoContent();
-        }
     }
 }
