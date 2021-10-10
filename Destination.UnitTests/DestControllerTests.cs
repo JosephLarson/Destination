@@ -67,28 +67,11 @@ namespace Destination.UnitTests
             var result = controller.GetDests();
 
             // Assert
-            Assert.IsType<DestDto>(result.Value.ElementAt(0));
-            for(int i = 0; i < result.Value.Count(); i++){
-                Assert.Equal(expectedDests[i].Destination, result.Value.ElementAt(i).Destination);
-                Assert.Equal(expectedDests[i].List, result.Value.ElementAt(i).List);
+            Assert.IsType<DestDto>(result.ElementAt(0));
+            for(int i = 0; i < result.Count(); i++){
+                Assert.Equal(expectedDests[i].Destination, result.ElementAt(i).Destination);
+                Assert.Equal(expectedDests[i].List, result.ElementAt(i).List);
             }
-        }
-
-        [Fact]
-        public void GetDestsTest_NoDests_NoContent()
-        {
-            // Arrange
-            var expectedDests = new Dest[]{ };
-            repositoryStub.Setup(repo => repo.GetDests())
-                .Returns(expectedDests);
-
-            var controller = new DestController(repositoryStub.Object);
-
-            // Act
-            var result = controller.GetDests();
-
-            // Assert
-            Assert.IsType<NoContentResult>(result.Result);
         }
 
         // Generates a Dest object to be used in API repository for testing purposes
