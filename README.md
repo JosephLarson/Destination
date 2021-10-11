@@ -1,6 +1,14 @@
 # CHR Interview Project
+Welcome! Thanks for taking the time to review this project and taking the time to consider me.  
+This program is a simple API with two GET requests. That return a list or path of how to get from the USA to specified destination.
 
-Welcome! Thanks for taking the time to review this project and taking the time to consider me for the position. 
+This is currently deployed on the following website.  
+https://josephlarsonproject.azurewebsites.net/
+
+You can call the API by adding the following endpoint suffix
+* /destination
+* /destination/(specified destination>
+   * Example: /destination/PAN
 
 ## Instructions to run with Visual Studio Code
 ### Download required tools
