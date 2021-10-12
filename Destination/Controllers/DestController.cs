@@ -18,6 +18,8 @@ namespace Destination.Controller
             this.repository = repository;
         }
 
+        /// <summary> Gets all the Dest objects for destinations </summary>
+        /// <return> Returns all the current destinations </return>
         // GET /destination
         [HttpGet]
         public IEnumerable<DestDto> GetDests()
@@ -26,6 +28,9 @@ namespace Destination.Controller
             return dests;
         }
 
+        /// <summary> Function to find a specific Dest object for a destination </summary>
+        /// <param name ="name"> string of the destination to look for </param>
+        /// <return> Returns the Dest object for that specific destination </return>
         // GET /destination{name}
         [HttpGet("{name}")]
         public ActionResult<DestDto> GetDest(string name)

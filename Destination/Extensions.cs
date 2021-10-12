@@ -4,8 +4,10 @@ using Destination.Entities;
 namespace Destination
 {
     public static class Extensions{
-        // Extension to provide easier use of DTO. 
-        // Operates on current dest object, to return DTO version
+
+        /// <summary> Function to return a Dest object as a DestDto, Data transfer object used to hide business logic </summary>
+        /// <param Dest ="dest"> Dest object to be turned into a DestDto </param>
+        /// <return> Returns a Dto of the passed in Dest </return>
         public static DestDto AsDto(this Dest dest)
         {
             return new DestDto

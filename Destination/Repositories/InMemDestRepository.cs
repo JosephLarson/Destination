@@ -6,6 +6,8 @@ namespace Destination.Repositories
 {
     public class InMemDestRepository : InterfaceInMemDestRepository
     {
+        /// <summary> Read only data used in API. For paths to destination. </summary>
+        /// <returns> A list of Dest objects containing destination and path to destination </returns>
         private readonly List<Dest> dest = new()
         {
             new Dest { Destination = "CAN", List = new List<string> {"USA", "CAN"}},
@@ -20,12 +22,16 @@ namespace Destination.Repositories
             new Dest { Destination = "PAN", List = new List<string> {"USA", "MEX", "GTM", "HND", "NIC", "CRI", "PAN"}},
         };
         
-
+        /// <summary> Gets all the Dest objects for destinations </summary>
+        /// <return> Returns all the current destinations </return>
         public IEnumerable<Dest> GetDests()
         {
             return dest;
         }
 
+        /// <summary> Function to find a specific Dest object for a destination </summary>
+        /// <param name ="name"> string of the destination to look for </param>
+        /// <return> Returns the Dest object for that specific destination </return>
         public Dest GetDest(string name)
         {
             return dest.Where(dest => dest.Destination == name).SingleOrDefault();
