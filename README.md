@@ -9,6 +9,9 @@ You can call the API by adding the following endpoint suffix
 * /destination
 * /destination/(specified destination>
    * Example: /destination/PAN
+* Full Example:
+    * https://josephlarsonproject.azurewebsites.net/destination
+    * https://josephlarsonproject.azurewebsites.net/destination/PAN
 
 ## Instructions to run with Visual Studio Code
 ### Download required tools
@@ -52,11 +55,29 @@ Initially you will have a connection isn't private response, and will need to tr
   * Confirm pop up with "YES"
   * Once complete the https://localhost:5001 webpage should have a response of "This localhost page can't be found"  
 
-### Assumptions
+### Unit Tests
+This repository includes unit tests using xUnit to ensure that code performs as expected. This code can be found in the Destination.UnitTests directory.  
+Suggest installing the following extension in VScode to run and examine unit Tests
+  * https://marketplace.visualstudio.com/items?itemName=formulahendry.dotnet-test-explorer
+  * Above can also be found in the extension marketplace within VScode.
 
+Once installed, in the VScode Activity bar should be a Testing option. Which can be used to run all the UnitTests.
+
+### Assumptions
+* Client only wants paths to destinations that will always start from USA.
+* Due to the above, datastructure should consist of a directed graph or tree.
+* Client wants an API or a Web Application. Not Both.
+* Client expects three-letter codes for a North American Country to be capitalized.
+* Website should return NotFound / status code 404 when data does not exist.
 
 ### Improvements
-
+* Refactor code to be Asynchronous
+* Refactor DataStructure used, current solution is pretty hardcoded for small sample size.
+* Add POST, DELETE, and PUT API requests.
+* Learn more about Docker and Containers for web deployment.
+* Learn more about Repository and Unit of Work Patterns in ASP.NET.
+* Add and include a Database (SQL or MongoDB) to allow for persistent data.
+* Update so that destination API requests can be received in lowercase (/pan), uppercase (/PAN), or a combination (/PaN)
 
 ### Technology and Tools
 * Swagger
@@ -64,6 +85,7 @@ Initially you will have a connection isn't private response, and will need to tr
 * Docker
 * MongoDB
 * .NET
+* Microsoft Azure
 
 ### Steps to Deploy from Terminal
 * >cd Destination\
