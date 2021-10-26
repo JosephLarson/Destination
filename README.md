@@ -1,4 +1,4 @@
-# CHR Interview Project
+# API Project
 Welcome! Thanks for taking the time to review this project and taking the time to consider me.  
 This program is a simple API with two GET requests. That return a list or path of how to get from the USA to specified destination.
 
